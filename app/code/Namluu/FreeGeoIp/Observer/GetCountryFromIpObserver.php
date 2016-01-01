@@ -43,11 +43,9 @@ class GetCountryFromIpObserver implements ObserverInterface
         if (!$this->_customerSession->getLocated()) {
 
             $clientIP = $this->_request->getClientIp();
-
-            $httpClient = new \Zend\Http\Client();
-
             $uri = 'http://freegeoip.net/json/' . $clientIP;
 
+            $httpClient = new \Zend\Http\Client();
             $httpClient->setUri($uri);
             $httpClient->setOptions(array(
                 'timeout' => 30
