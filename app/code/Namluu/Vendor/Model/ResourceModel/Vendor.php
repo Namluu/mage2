@@ -19,10 +19,14 @@ class Vendor extends AbstractDb
             return [];
         }
 
-        $select = $this->getReadConnection()->select()
+        $connection = $this->getConnection();
+
+        $select = $this->getConnection()->select()
             ->from($this->getTable('training4_vendor2product'), ['product_id'])
             ->where('vendor_id = ?', $vendorId);
 
-        return $this->getReadConnection()->fetchCol($select);
+        //echo $select->__toString();
+
+        return $connection->fetchCol($select);
     }
 }

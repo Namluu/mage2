@@ -1,0 +1,13 @@
+<?php $vendor = $this->getVendor() ?>
+<?php echo $vendor->getName(); ?>
+<p>List all products assigned:</p>
+<!--<ul>
+    <?php foreach ($vendor->getAssignedProductIds() as $productId) : ?>
+    <li><?php echo $productId; ?></li>
+    <?php endforeach; ?>
+</ul>-->
+<ul>
+    <?php foreach ($this->getLoadedProductCollection() as $product) : ?>
+    <li><?php echo $product->getId(); ?>-<?php echo $product->getName(); ?></li>
+    <?php endforeach; ?>
+</ul>
