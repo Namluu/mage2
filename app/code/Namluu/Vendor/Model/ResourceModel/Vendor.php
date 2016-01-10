@@ -1,5 +1,5 @@
 <?php
-namespace Namluu\Vendor\Model\Resource;
+namespace Namluu\Vendor\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 

@@ -1,5 +1,5 @@
 <?php
-namespace Namluu\Vendor\Model\Resource\Vendor;
+namespace Namluu\Vendor\Model\ResourceModel\Vendor;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
@@ -9,7 +9,7 @@ class Collection extends AbstractCollection
     {
         $this->_init(
             'Namluu\Vendor\Model\Vendor',
-            'Namluu\Vendor\Model\Resource\Vendor'
+            'Namluu\Vendor\Model\ResourceModel\Vendor'
         );
     }
 

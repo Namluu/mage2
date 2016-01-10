@@ -8,7 +8,7 @@ class Vendor extends AbstractModel implements \Namluu\Vendor\Api\Data\VendorInte
 {
     protected function _construct()
     {
-        $this->_init('Namluu\Vendor\Model\Resource\Vendor');
+        $this->_init('Namluu\Vendor\Model\ResourceModel\Vendor');
     }
 
     public function getName()

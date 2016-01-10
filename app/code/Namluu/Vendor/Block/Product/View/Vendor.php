@@ -12,7 +12,7 @@ class Vendor extends Template
     (
         Template\Context $context,
         \Magento\Framework\Registry $registry,
-        \Namluu\Vendor\Model\Resource\Vendor\CollectionFactory $collectionFactory,
+        \Namluu\Vendor\Model\ResourceModel\Vendor\CollectionFactory $collectionFactory,
         array $data = []
     )
     {
