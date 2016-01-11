@@ -1,4 +1,4 @@
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd" layout="2columns-right">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="2columns-right">
     <body>
         <referenceContainer name="content">
             <block class="Namluu\VendorList\Block\VendorView" name="vendor.view" as="vendor.view" template="vendorview.phtml" />
