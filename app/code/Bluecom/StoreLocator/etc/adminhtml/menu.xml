@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bluecom_StoreLocator::store_location" title="Store Location" module="Bluecom_StoreLocator" sortOrder="50" parent="Magento_Backend::content" resource="Bluecom_StoreLocator::store_location" />
+        <add id="Bluecom_StoreLocator::location" title="List" module="Bluecom_StoreLocator" sortOrder="0" parent="Bluecom_StoreLocator::store_location" action="store/location" resource="Bluecom_StoreLocator::location"/>
+        <add id="Bluecom_StoreLocator::setting" title="Setting" module="Bluecom_StoreLocator" sortOrder="1" parent="Bluecom_StoreLocator::store_location" action="store/setting" resource="Bluecom_StoreLocator::setting"/>
+    </menu>
+</config>

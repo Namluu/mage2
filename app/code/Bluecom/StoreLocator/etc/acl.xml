@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::content">
+                    <resource id="Bluecom_StoreLocator::store_location" title="Store Location" sortOrder="10" >
+                        <resource id="Bluecom_StoreLocator::location" title="List" sortOrder="40">
+                            <resource id="Bluecom_StoreLocator::add" title="Add New Location" sortOrder="10" />
+                        </resource>
+                        <resource id="Bluecom_StoreLocator::setting" title="Setting" sortOrder="50">
+                            <resource id="Bluecom_StoreLocator::save" title="Save Location" sortOrder="10" />
+                            <resource id="Bluecom_StoreLocator::location_delete" title="Delete Location" sortOrder="20" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
