@@ -25,7 +25,7 @@
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">LocationGridDataProvider</argument>
             <argument name="name" xsi:type="string">store_location_listing_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">block_id</argument>
+            <argument name="primaryFieldName" xsi:type="string">location_id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -95,18 +95,18 @@
                     <item name="childDefaults" xsi:type="array">
                         <item name="provider" xsi:type="string">store_location_listing.store_location_listing.listing_top.listing_filters</item>
                         <item name="imports" xsi:type="array">
-                            <item name="visible" xsi:type="string">store_location_listing.blog_post_listing.listing_top.bookmarks:current.columns.${ $.index }.visible</item>
+                            <item name="visible" xsi:type="string">store_location_listing.store_location_listing.listing_top.bookmarks:current.columns.${ $.index }.visible</item>
                         </item>
                     </item>
                 </item>
             </argument>
-            <filterRange name="post_id">
+            <filterRange name="location_id">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
-                        <item name="dataScope" xsi:type="string">post_id</item>
+                        <item name="dataScope" xsi:type="string">location_id</item>
                         <item name="label" xsi:type="string" translate="true">ID</item>
                         <item name="childDefaults" xsi:type="array">
-                            <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing.listing_top.listing_filters</item>
+                            <item name="provider" xsi:type="string">store_location_listing.store_location_listing.listing_top.listing_filters</item>
                         </item>
                     </item>
                 </argument>
@@ -137,11 +137,11 @@
                     </item>
                 </argument>
             </filterInput>
-            <filterInput name="url_key">
+            <filterInput name="url">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
-                        <item name="dataScope" xsi:type="string">url_key</item>
-                        <item name="label" xsi:type="string" translate="true">URL Key</item>
+                        <item name="dataScope" xsi:type="string">url</item>
+                        <item name="label" xsi:type="string" translate="true">URL</item>
                     </item>
                 </argument>
             </filterInput>
@@ -170,7 +170,7 @@
                         <item name="dataScope" xsi:type="string">creation_time</item>
                         <item name="label" xsi:type="string" translate="true">Created</item>
                         <item name="childDefaults" xsi:type="array">
-                            <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing.listing_top.listing_filters</item>
+                            <item name="provider" xsi:type="string">store_location_listing.store_location_listing.listing_top.listing_filters</item>
                         </item>
                     </item>
                 </argument>
@@ -230,41 +230,50 @@
         <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">blog_post_listing.blog_post_listing.blog_post_columns.ids</item>
-                    <item name="displayArea" xsi:type="string">bottom</item>
-                    <item name="actions" xsi:type="array">
-                        <item name="delete" xsi:type="array">
-                            <item name="type" xsi:type="string">delete</item>
-                            <item name="label" xsi:type="string" translate="true">Delete</item>
-                            <item name="url" xsi:type="string">blog/post/massDelete</item>
-                            <item name="confirm" xsi:type="array">
-                                <item name="title" xsi:type="string" translate="true">Delete items</item>
-                                <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
-                            </item>
-                        </item>
-                        <item name="disable" xsi:type="array">
-                            <item name="type" xsi:type="string">disable</item>
-                            <item name="label" xsi:type="string" translate="true">Disable</item>
-                            <item name="url" xsi:type="string">blog/post/massDisable</item>
-                        </item>
-                        <item name="enable" xsi:type="array">
-                            <item name="type" xsi:type="string">enable</item>
-                            <item name="label" xsi:type="string" translate="true">Enable</item>
-                            <item name="url" xsi:type="string">blog/post/massEnable</item>
-                        </item>
-                    </item>
-                    <item name="indexField" xsi:type="string">post_id</item>
+                    <item name="selectProvider" xsi:type="string">store_location_listing.store_location_listing.store_location_columns.ids</item>
+                    <item name="indexField" xsi:type="string">location_id</item>
                 </item>
             </argument>
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="store/location/massDelete"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete items</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+            <action name="disable">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">disable</item>
+                        <item name="label" xsi:type="string" translate="true">Disable</item>
+                        <item name="url" xsi:type="url" path="store/location/massDisable"/>
+                    </item>
+                </argument>
+            </action>
+            <action name="enable">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">enable</item>
+                        <item name="label" xsi:type="string" translate="true">Enable</item>
+                        <item name="url" xsi:type="url" path="store/location/massEnable"/>
+                    </item>
+                </argument>
+            </action>
         </massaction>
         <paging name="listing_paging">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">store_location_listing.store_location_listing.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.paging</item>
                     </item>
-                    <item name="selectProvider" xsi:type="string">blog_post_listing.blog_post_listing.blog_post_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">store_location_listing.store_location_listing.store_location_columns.ids</item>
                     <item name="displayArea" xsi:type="string">bottom</item>
                     <item name="options" xsi:type="array">
                         <item name="20" xsi:type="array">
@@ -296,21 +305,21 @@
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="storageConfig" xsi:type="array">
-                    <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing.listing_top.bookmarks</item>
+                    <item name="provider" xsi:type="string">store_location_listing.store_location_listing.listing_top.bookmarks</item>
                     <item name="namespace" xsi:type="string">current</item>
                 </item>
                 <item name="childDefaults" xsi:type="array">
                     <item name="fieldAction" xsi:type="array">
-                        <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing.blog_post_columns.actions</item>
+                        <item name="provider" xsi:type="string">store_location_listing.store_location_listing.store_location_columns.actions</item>
                         <item name="target" xsi:type="string">applyAction</item>
                         <item name="params" xsi:type="array">
                             <item name="0" xsi:type="string">edit</item>
                             <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
                         </item>
                     </item>
-                    <item name="controlVisibility" xsi:type="boolean">true</item>
+                    <!--<item name="controlVisibility" xsi:type="boolean">true</item>-->
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">blog_post_listing.blog_post_listing.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">store_location_listing.store_location_listing.listing_top.bookmarks</item>
                         <item name="root" xsi:type="string">columns.${ $.index }</item>
                         <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
                     </item>
@@ -323,7 +332,7 @@
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">55</item>
-                    <item name="indexField" xsi:type="string">post_id</item>
+                    <item name="indexField" xsi:type="string">location_id</item>
                 </item>
             </argument>
         </selectionsColumn>
@@ -416,7 +425,7 @@
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">107</item>
-                    <item name="indexField" xsi:type="string">post_id</item>
+                    <item name="indexField" xsi:type="string">location_id</item>
                 </item>
             </argument>
         </actionsColumn>

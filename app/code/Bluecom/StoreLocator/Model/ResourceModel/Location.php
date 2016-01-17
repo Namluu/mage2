@@ -61,7 +61,7 @@ class Location extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      *
      * @param string $field
      * @param mixed $value
-     * @param \Ashsmith\Blog\Model\Post $object
+     * @param \Bluecom\StoreLocator\Model\Location $object
      * @return \Zend_Db_Select
      */
     protected function _getLoadSelect($field, $value, $object)

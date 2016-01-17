@@ -36,6 +36,16 @@ class Location extends \Magento\Framework\Model\AbstractModel implements Locatio
     }
 
     /**
+     * Get address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->getData(self::ADDRESS);
+    }
+
+    /**
      * Get title
      *
      * @return string|null
@@ -43,6 +53,66 @@ class Location extends \Magento\Framework\Model\AbstractModel implements Locatio
     public function getTitle()
     {
         return $this->getData(self::TITLE);
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->getData(self::URL);
+    }
+
+    /**
+     * Get email
+     *
+     * @return string|null
+     */
+    public function getEmail()
+    {
+        return $this->getData(self::EMAIL);
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string|null
+     */
+    public function getPhone()
+    {
+        return $this->getData(self::PHONE);
+    }
+
+    /**
+     * Get note
+     *
+     * @return string|null
+     */
+    public function getNote()
+    {
+        return $this->getData(self::NOTE);
+    }
+
+    /**
+     * Get longitude
+     *
+     * @return string|null
+     */
+    public function getLongitude()
+    {
+        return $this->getData(self::LONGITUDE);
+    }
+
+    /**
+     * Get latitude
+     *
+     * @return string|null
+     */
+    public function getLatitude()
+    {
+        return $this->getData(self::LATITUDE);
     }
 
     /**
@@ -76,6 +146,39 @@ class Location extends \Magento\Framework\Model\AbstractModel implements Locatio
     }
 
     /**
+     * Set url
+     *
+     * @param string $url
+     * @return \Bluecom\StoreLocator\Api\Data\LocationInterface
+     */
+    public function setUrl($url)
+    {
+        return $this->setData(self::URL, $url);
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return \Bluecom\StoreLocator\Api\Data\LocationInterface
+     */
+    public function setTitle($title)
+    {
+        return $this->setData(self::TITLE, $title);
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     * @return \Bluecom\StoreLocator\Api\Data\LocationInterface
+     */
+    public function setNote($content)
+    {
+        return $this->setData(self::NOTE, $content);
+    }
+
+    /**
      * Set creation time
      *
      * @param string $creation_time
@@ -95,6 +198,27 @@ class Location extends \Magento\Framework\Model\AbstractModel implements Locatio
     public function setUpdateTime($update_time)
     {
         return $this->setData(self::UPDATE_TIME, $update_time);
+    }
+
+    /**
+     * Set is active
+     *
+     * @param int|bool $isActive
+     * @return \Bluecom\StoreLocator\Api\Data\LocationInterface
+     */
+    public function setIsActive($isActive)
+    {
+        return $this->setData(self::IS_ACTIVE, $isActive);
+    }
+
+    /**
+     * Return unique ID(s) for each object in system
+     *
+     * @return array
+     */
+    public function getIdentities()
+    {
+        return [self::CACHE_TAG . '_' . $this->getId()];
     }
 
 }

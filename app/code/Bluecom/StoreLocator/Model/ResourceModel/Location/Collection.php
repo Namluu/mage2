@@ -4,6 +4,11 @@ namespace Bluecom\StoreLocator\Model\ResourceModel\Location;
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
     /**
+     * @var string
+     */
+    protected $_idFieldName = 'location_id';
+
+    /**
      * Define resource model
      *
      * @return void

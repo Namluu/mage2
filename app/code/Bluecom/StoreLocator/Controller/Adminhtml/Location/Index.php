@@ -6,7 +6,6 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE = 'Bluecom_StoreLocator::location';
     
     public function __construct(
         Context $context,
@@ -26,5 +25,15 @@ class Index extends \Magento\Backend\App\Action
         $resultPage->getConfig()->getTitle()->prepend(__('Manage Store Location'));
 
         return $resultPage;
+    }
+
+    /**
+     * Is the user allowed to view the blog post grid.
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Bluecom_StoreLocator::location');
     }
 }

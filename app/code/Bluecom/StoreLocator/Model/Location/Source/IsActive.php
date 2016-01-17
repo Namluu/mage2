@@ -3,12 +3,12 @@ namespace Bluecom\StoreLocator\Model\Location\Source;
 
 class IsActive implements \Magento\Framework\Data\OptionSourceInterface
 {
-    protected $post;
+    protected $location;
 
-    /*public function __construct(\Bluecom\StoreLocator\Model\Location $post)
+    public function __construct(\Bluecom\StoreLocator\Model\Location $location)
     {
-        $this->post = $post;
-    }*/
+        $this->_location = $location;
+    }
 
     /**
      * Get options
@@ -18,13 +18,13 @@ class IsActive implements \Magento\Framework\Data\OptionSourceInterface
     public function toOptionArray()
     {
         $options[] = ['label' => '', 'value' => ''];
-        /*$availableOptions = $this->post->getAvailableStatuses();
+        $availableOptions = $this->_location->getAvailableStatuses();
         foreach ($availableOptions as $key => $value) {
             $options[] = [
                 'label' => $value,
                 'value' => $key,
             ];
-        }*/
+        }
         return $options;
     }
 }
