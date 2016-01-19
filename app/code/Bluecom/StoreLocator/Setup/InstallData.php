@@ -33,7 +33,7 @@ class InstallData implements InstallDataInterface
                     'is_active' => 1
                 ],
                 [
-                    'title' => 'Đần Sen',
+                    'title' => 'Đầm Sen',
                     'address' => '3 Hòa Bình, phường 3, Hồ Chí Minh, Vietnam',
                     'email' => 'var@yahoo.com',
                     'phone' => '098-234-1234',

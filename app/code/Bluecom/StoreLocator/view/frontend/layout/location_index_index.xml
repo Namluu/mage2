@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Bluecom_StoreLocator::css/location.css"/>
+        <script src="Bluecom_StoreLocator::js/bluecom_location.js"/>
+    </head>
     <body>
         <referenceContainer name="content">
             <block class="Bluecom\StoreLocator\Block\LocationList" name="location.list" template="Bluecom_StoreLocator::list.phtml" />
