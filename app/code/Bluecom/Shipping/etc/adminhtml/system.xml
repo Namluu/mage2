@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers">
+            <group id="msmultiflat" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Pickup at Event / Multiple Flatrates</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sort Order</label>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="name1" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Event / Method 1 >></label>
+                </field>
+                <field id="price1" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Price (0.00)</label>
+                </field>
+                <field id="details1" translate="label" type="textarea" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Details</label>
+                </field>
+                <field id="type1" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Type</label>
+                    <source_model>Magento\OfflineShipping\Model\Config\Source\Flatrate</source_model>
+                </field>
+                <field id="min_shipping1" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Minimum order amount</label>
+                </field>
+                <field id="max_shipping1" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Maximum order amount</label>
+                </field>
+                <field id="name2" translate="label" type="text" sortOrder="23" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Event / Method 2 >></label>
+                </field>
+                <field id="price2" translate="label" type="text" sortOrder="24" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Price (0.00)</label>
+                </field>
+                <field id="details2" translate="label" type="textarea" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Details</label>
+                </field>
+                <field id="type2" translate="label" type="select" sortOrder="26" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Type</label>
+                    <source_model>Magento\OfflineShipping\Model\Config\Source\Flatrate</source_model>
+                </field>
+                <field id="min_shipping2" translate="label" type="text" sortOrder="27" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Minimum order amount</label>
+                </field>
+                <field id="max_shipping2" translate="label" type="text" sortOrder="28" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Maximum order amount</label>
+                </field>
+                <field id="name3" translate="label" type="text" sortOrder="33" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Event / Method 3 >></label>
+                </field>
+                <field id="price3" translate="label" type="text" sortOrder="34" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Price (0.00)</label>
+                </field>
+                <field id="details3" translate="label" type="textarea" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Details</label>
+                </field>
+                <field id="type3" translate="label" type="select" sortOrder="36" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Type</label>
+                    <source_model>Magento\OfflineShipping\Model\Config\Source\Flatrate</source_model>
+                </field>
+                <field id="min_shipping3" translate="label" type="text" sortOrder="37" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Minimum order amount</label>
+                </field>
+                <field id="max_shipping3" translate="label" type="text" sortOrder="38" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Maximum order amount</label>
+                </field>
+                <field id="name4" translate="label" type="text" sortOrder="43" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Event / Method 4 >></label>
+                </field>
+                <field id="price4" translate="label" type="text" sortOrder="44" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Price (0.00)</label>
+                </field>
+                <field id="details4" translate="label" type="textarea" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Details</label>
+                </field>
+                <field id="type4" translate="label" type="select" sortOrder="46" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Type</label>
+                    <source_model>Magento\OfflineShipping\Model\Config\Source\Flatrate</source_model>
+                </field>
+                <field id="min_shipping4" translate="label" type="text" sortOrder="47" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Minimum order amount</label>
+                </field>
+                <field id="max_shipping4" translate="label" type="text" sortOrder="48" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Maximum order amount</label>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="53" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Event / Method 5 >></label>
+                </field>
+                <field id="price5" translate="label" type="text" sortOrder="54" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Price (0.00)</label>
+                </field>
+                <field id="details5" translate="label" type="textarea" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Details</label>
+                </field>
+                <field id="type5" translate="label" type="select" sortOrder="56" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Type</label>
+                    <source_model>Magento\OfflineShipping\Model\Config\Source\Flatrate</source_model>
+                </field>
+                <field id="min_shipping5" translate="label" type="text" sortOrder="57" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Minimum order amount</label>
+                </field>
+                <field id="max_shipping5" translate="label" type="text" sortOrder="58" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>• Maximum order amount</label>
+                </field>
+                <field id="sallowspecific" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ship to Applicable Countries</label>
+                    <frontend_class>shipping-applicable-country</frontend_class>
+                    <source_model>Magento\Shipping\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="91" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ship to Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="showmethod" translate="label" type="select" sortOrder="92" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Method if Not Applicable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="specificerrmsg" translate="label" type="textarea" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Displayed Error Message</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
