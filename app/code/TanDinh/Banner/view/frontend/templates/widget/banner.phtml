@@ -1,0 +1,19 @@
+<?php
+$title = $this->getData('title');
+$bannerId = $this->getData('banners_id');
+$sliders = $this->getSlider($bannerId);
+?>
+<?php if(count($sliders) > 1): ?>
+    <ul class="fotorama" data-width="700" data-ratio="700/467" data-max-width="100%">
+        <?php foreach($sliders as $slider): ?>
+            <li>
+                <p><?php echo __($slider['title']) ?></p>
+                <a href="<?php echo $slider['url'] ?>" alt = "<?php echo $slider['alt'] ?>"><img src="<?php echo $this->getImageSrc($slider['image']); ?>" /></a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php else: ?>
+    <?php echo __('Banners not exit'); ?>
+<?php endif; ?>
+<?php
+?>

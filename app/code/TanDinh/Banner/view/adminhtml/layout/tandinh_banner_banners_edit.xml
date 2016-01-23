@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="TanDinh\Banner\Block\Adminhtml\Banners\Edit\Tabs" name="tandinh_banner_banners_edit_tabs">
+                <block class="TanDinh\Banner\Block\Adminhtml\Banners\Edit\Tab\Main" name="tandinh_banner_banners_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">tandinh_banner_banners_edit_tab_main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="TanDinh\Banner\Block\Adminhtml\Banners\Edit" name="banner_banners_edit"/>
+        </referenceContainer>
+    </body>
+</page>

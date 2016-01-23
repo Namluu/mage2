@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="TanDinh\Banner\Block\Adminhtml\Banners" name="adminhtml.block.slider.grid.container">
+                <block class="TanDinh\Banner\Block\Adminhtml\Banners\Widget\Grid\Grid" name="adminhtml.block.banner.banners.grid" as="grid"></block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

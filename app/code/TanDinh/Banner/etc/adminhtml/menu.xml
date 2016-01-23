@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="tandinh::base" title="TanDinh" module="TanDinh_Banner" sortOrder="90" resource="TanDinh_Banner::sample"/>
+        <add id="tandinh_banner::banner" title="Banners" module="TanDinh_Banner" sortOrder="10" parent="tandinh::base" action="tandinh_banner/banners/" resource="TanDinh_Banner::banners"/>
+        <add id="tandinh_banner::sliders" title="Sliders" module="TanDinh_Banner" sortOrder="10" parent="tandinh::base" action="tandinh_banner/sliders/" resource="TanDinh_Banner::sliders"/>
+    </menu>
+</config>

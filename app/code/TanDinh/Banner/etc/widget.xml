@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Widget/etc/widget.xsd">
+    <widget id="tandinh_bannerwidget" class="TanDinh\Banner\Block\Widget\Banners">
+        <label translate="true">Slider Widget</label>
+        <description>Select slider to show in page or block</description>
+        <parameters>
+            <parameter name="title" xsi:type="text"  visible="true" sort_order="0" >
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="banners_id" xsi:type="select" source_model="TanDinh\Banner\Model\Widget\Banners" visible="true" sort_order="10" >
+                <label translate="true">Banners</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
