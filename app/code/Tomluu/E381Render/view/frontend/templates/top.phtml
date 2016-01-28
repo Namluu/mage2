@@ -1,0 +1,11 @@
+<?php
+$styles = ['padding: 5px', 'border: 1px solid blue', 'text-align: center'];
+if ($this->getColor()) {
+    $styles[] =  'color: ' . $this->getColor();
+}
+if ($this->getBackgroundColor()) {
+    $styles[] = 'background-color: ' . $this->getBackgroundColor();
+}
+
+?>
+<p style="<?php echo implode(';', $styles) ?>">top render</p>

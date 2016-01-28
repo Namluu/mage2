@@ -1,0 +1,6 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="render.top.test" destination="sidebar.main" after="-"/>
+        <!-- <move element="render.top.test" destination="sidebar.additional" after="-"/> -->
+    </body>
+</page>
