@@ -6,6 +6,7 @@
                 <item name="default" xsi:type="array">
                     <item name="class" xsi:type="string">Tomluu\E233NotFound\Controller\NoRouteHandler</item>
                     <item name="sortOrder" xsi:type="string">200</item>
+                    <item name="disable" xsi:type="boolean">true</item>
                 </item>
             </argument>
         </arguments>

@@ -2,8 +2,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="standard">
-        <route id="helloworld" frontName="helloworld">
-            <module name="Tomluu_E251Helloworld2"/>
+        <route id="hellosun" frontName="hellosun">
+            <module name="Tomluu_E251HelloSun"/>
         </route>
     </router>
 </config>

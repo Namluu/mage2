@@ -1,5 +1,5 @@
 <?php
-namespace Tomluu\E251Helloworld2\Controller\Index;
+namespace Tomluu\E251HelloSun\Controller\Index;
 
 class Index extends \Magento\Framework\App\Action\Action
 {
