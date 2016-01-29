@@ -2,4 +2,7 @@
     <head>
         <title>Training Render Controller</title>
     </head>
+    <body>
+        <referenceBlock name="render.top.test" remove="true"/>
+    </body>
 </page>

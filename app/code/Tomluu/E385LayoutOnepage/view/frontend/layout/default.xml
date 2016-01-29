@@ -1,0 +1,12 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="1column">
+    <body>
+        <referenceBlock name="header.links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="example.link" before="-">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">One Page</argument>
+                    <argument name="path" xsi:type="string">render/layout/onepage</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

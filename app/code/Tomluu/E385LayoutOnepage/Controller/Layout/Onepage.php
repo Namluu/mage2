@@ -1,11 +1,11 @@
 <?php
-namespace Tomluu\E385RenderController\Controller\Index;
+namespace Tomluu\E385LayoutOnepage\Controller\Layout;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\Page as ResultPage;
 
-class Index extends Action
+class Onepage extends Action
 {
 
     protected $resultPage;
