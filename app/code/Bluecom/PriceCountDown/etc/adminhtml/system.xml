@@ -1,0 +1,39 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+
+        <tab id="bc_storeconfig" translate="label" sortOrder="50">
+            <label>Bluecom</label>
+        </tab>
+
+        <section id="section_price_countdown" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Price Countdown</label>
+            <tab>bc_storeconfig</tab>
+            <resource>Bluecom_PriceCountDown::_storeconfig</resource>
+
+            <group id="group_price_countdown" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Custom block options</label>
+
+                <field id="active_price_countdown" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Activate Price Countdown</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="pcd_block_width" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Block Zoom</label>
+                    <source_model>Bluecom\PriceCountDown\Model\System\Config\Source\WidthBlockOptions</source_model>
+                    <depends>
+                        <field id="active_price_countdown">1</field>
+                    </depends>
+                </field>
+
+                <field id="pcd_block_color" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Block Color</label>
+                    <source_model>Bluecom\PriceCountDown\Model\System\Config\Source\ColorBlockOption</source_model>
+                    <depends>
+                        <field id="active_price_countdown">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
