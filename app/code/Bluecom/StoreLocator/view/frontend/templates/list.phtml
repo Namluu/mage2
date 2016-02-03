@@ -1,7 +1,12 @@
+<?php
+$storeLocatorHelper = $this->helper('Bluecom\StoreLocator\Helper\Data');
+?>
 <h1><?php echo __('Find a store') ?></h1>
 <div class="container-map">
     <div id="list">
-        <ul id="ul-list">
+        <ul id="ul-list" 
+            data-enable="<?php echo $storeLocatorHelper->isEnabled() ?>" 
+            data-mapzoom="<?php echo $storeLocatorHelper->getMapZoom() ?>">
         <?php foreach ($block->getLocations() as $location): ?>
             <li class="location-item" 
                 data-longitude="<?php echo $location->getLongitude() ?>" 
@@ -20,5 +25,4 @@
     <div id="map"></div>
     <input type="text" id="addressInput" class="controls" placeholder="Search Box" />
 </div>
-
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete"></script>

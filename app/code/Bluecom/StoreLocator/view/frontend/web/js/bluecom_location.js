@@ -2,7 +2,10 @@ function initAutocomplete()
 {
     var listLocation = [];
     // init map
-    var firstLoc = document.getElementById('ul-list').children[0];
+    var mapElement = document.getElementById('ul-list'),
+        isEnable = Number(mapElement.getAttribute('data-enable')),
+        mapZoom = Number(mapElement.getAttribute('data-mapzoom')),
+        firstLoc = mapElement.children[0];
     var defaultLoc = new google.maps.LatLng(
         firstLoc.getAttribute('data-longitude'), 
         firstLoc.getAttribute('data-latitude')
@@ -11,7 +14,7 @@ function initAutocomplete()
     var mapCanvas = document.getElementById('map');
     var mapOptions = {
         center: defaultLoc,
-        zoom: 13,
+        zoom: mapZoom,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     var map = new google.maps.Map(mapCanvas, mapOptions);

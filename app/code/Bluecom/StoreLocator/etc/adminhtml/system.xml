@@ -1,0 +1,31 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+
+        <tab id="bc_storeconfig" translate="label" sortOrder="50">
+            <label>Bluecom</label>
+        </tab>
+
+        <section id="section_store_location" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Store Locator</label>
+            <tab>bc_storeconfig</tab>
+            <resource>Bluecom_StoreLocator::setting</resource>
+
+            <group id="group_store_locator" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Map options</label>
+
+                <field id="active_store_locator" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Activate Store Locator</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="sl_map_zoom" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Map zoom</label>
+                    <source_model>Bluecom\StoreLocator\Model\System\Config\Source\MapZoomOptions</source_model>
+                    <depends>
+                        <field id="active_store_locator">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

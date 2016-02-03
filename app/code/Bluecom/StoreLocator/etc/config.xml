@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <section_store_location>
+            <group_store_locator>
+                <active_store_locator>1</active_store_locator>
+            </group_store_locator>
+        </section_store_location>
+        <section_store_location>
+            <group_store_locator>
+                <sl_map_zoom>13</sl_map_zoom>
+            </group_store_locator>
+        </section_store_location>
+    </default>
+</config>
