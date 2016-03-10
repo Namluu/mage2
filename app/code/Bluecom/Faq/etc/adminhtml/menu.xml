@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bluecom_Faq::faq_content" title="Faq" module="Bluecom_Faq" sortOrder="50" parent="Magento_Backend::content" resource="Bluecom_Faq::faq_content" />
+        <add id="Bluecom_Faq::faq" title="Manage Faqs" module="Bluecom_Faq" sortOrder="0" parent="Bluecom_Faq::faq_content" action="faq/faq" resource="Bluecom_Faq::faq"/>
+        <add id="Bluecom_Faq::cate" title="Manage Category" module="Bluecom_Faq" sortOrder="1" parent="Bluecom_Faq::faq_content" action="faq/cate" resource="Bluecom_Faq::cate"/>
+    </menu>
+</config>

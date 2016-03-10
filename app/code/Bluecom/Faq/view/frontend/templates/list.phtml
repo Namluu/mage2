@@ -1,0 +1,58 @@
+<?php /** @var $faq \Bluecom\Faq\Block\FaqList */ ?>
+<h3><?php echo __('FAQS') ?></h3>
+<div class="ms-faq">
+    <div class="form-group faq-container">
+        <div class="row row-container">
+            <div id="faq-container">
+                <div class="faq-left">
+                    <ul class="form-group">
+                        <?php 
+                            $faqCates = $block->getCollectionCates();
+                            foreach ($faqCates as $cate):
+                        ?>
+                            <li> 
+                                <a title="<?php echo $cate->getCategoryName();?>" id="cate-<?php echo $cate->getId();?>" class="faq-link faq-navigator first">
+                                    <?php echo $cate->getCategoryName();?>
+                                </a>    
+                            </li>
+                        <?php  endforeach; ?>
+                    </ul>
+                </div>
+                <div class="faq-main" id="faq-main">
+                	<div class="form-group" id="faq_listing">
+                		<div class="faq-listing">
+                			<div class="row">
+                			<?php 
+                                $faqCollection = $block->getCollection();
+                                foreach($faqCollection as $faq):
+                            ?>
+                				<div class="faq">
+                					<a class="faq-question" id="faq-question-<?php echo $faq->getId() ?>" title="<?php echo $faq->getQuestion()?>">
+                						<span class="arrow_box"></span>
+                						<?php echo $faq->getquestion() ?>
+                					</a>
+                					<div class="faq-content" id="faq-content-<?php echo $faq->getId() ?>">
+                					<?php echo $faq->getAnswer() ?>
+                					</div>
+                				</div>
+                			<?php endforeach; ?>	
+                			</div>
+                		</div>
+                        <!-- pagging faq -->
+                        <?php if($block->getPagerHtml()):?>
+                            <div class="toolbar-bottom">
+                                <div class="toolbar bottom">
+                                    <?php echo $block->getPagerHtml(); ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                	</div>
+                 <div class="faq-fade" id="faq-fade" style="display: none;"></div>    
+                </div>
+            </div>    
+        </div>    
+    </div>
+</div>
+<script type="text/javascript">
+  require(['jquery','faq']);
+</script>    

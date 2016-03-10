@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Bluecom\Faq\Api\Data\FaqInterface" type="Bluecom\Faq\Model\Faq" />
+    <preference for="Bluecom\Faq\Api\FaqRepositoryInterface" type="Bluecom\Faq\Model\FaqRepository" />
+    <virtualType name="FaqGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="FaqGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Bluecom\Faq\Model\Resource\Faq\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">FaqGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    
+    <virtualType name="Bluecom\Faq\Model\ResourceModel\Faq\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bluecom_faq</argument>
+            <argument name="resourceModel" xsi:type="string">Bluecom\Faq\Model\ResourceModel\Faq</argument>
+        </arguments>
+    </virtualType>
+    
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="faq_faq_listing_data_source" xsi:type="string">Bluecom\Faq\Model\ResourceModel\Faq\Grid\Collection</item>
+                <item name="faq_cate_listing_data_source" xsi:type="string">Bluecom\Faq\Model\ResourceModel\Cate\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Bluecom\Faq\Model\ResourceModel\Faq\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bluecom_faq</argument>
+            <argument name="eventPrefix" xsi:type="string">bluecom_faq_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">faq_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Bluecom\Faq\Model\ResourceModel\Faq</argument>
+        </arguments>
+    </type>
+
+    <!-- config for cate -->
+    
+    <preference for="Bluecom\Faq\Api\Data\FaqCateInterface" type="Bluecom\Faq\Model\Cate" />
+   
+    <virtualType name="CateGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="CateGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Bluecom\Faq\Model\Resource\Cate\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">CateGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    
+    <virtualType name="Bluecom\Faq\Model\ResourceModel\Cate\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bluecom_faq</argument>
+            <argument name="resourceModel" xsi:type="string">Bluecom\Faq\Model\ResourceModel\Cate</argument>
+        </arguments>
+    </virtualType>
+    <type name="Bluecom\Faq\Model\ResourceModel\Cate\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bluecom_faq_category</argument>
+            <argument name="eventPrefix" xsi:type="string">bluecom_cate_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">cate_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Bluecom\Faq\Model\ResourceModel\Cate</argument>
+        </arguments>
+    </type>
+
+</config>

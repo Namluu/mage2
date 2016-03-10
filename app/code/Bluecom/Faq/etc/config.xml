@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <faq>
+            <default>
+                <enable_faq>1</enable_faq>
+                <faq_number_page>5</faq_number_page>
+            </default>
+        </faq>
+    </default>
+</config>
