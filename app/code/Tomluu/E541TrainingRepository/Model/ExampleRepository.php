@@ -17,17 +17,17 @@ class ExampleRepository implements ExampleRepositoryInterface
     /**
     * @var ExampleSearchResultsInterfaceFactory
     */
-    private $searchResultsFactory;
+    protected $searchResultsFactory;
 
     /**
     * @var ExampleFactory
     */
-    private $exampleFactory;
+    protected $exampleFactory;
 
     /**
     * @var ExampleDataFactory
     */
-    private $exampleDataFactory;
+    protected $exampleDataFactory;
 
     public function __construct(
         ExampleSearchResultsInterfaceFactory $searchResultsFactory,
@@ -59,7 +59,7 @@ class ExampleRepository implements ExampleRepositoryInterface
         return $searchResults;
     }
 
-    private function addFilterGroupToCollection(FilterGroup $filterGroup,ExampleCollection $collection)
+    protected function addFilterGroupToCollection(FilterGroup $filterGroup,ExampleCollection $collection)
     {
         $fields = [];
         $conditions = [];
@@ -73,7 +73,7 @@ class ExampleRepository implements ExampleRepositoryInterface
         }
     }
 
-    private function convertCollectionToDataItemsArray(ExampleCollection $collection)
+    protected function convertCollectionToDataItemsArray(ExampleCollection $collection)
     {
         $examples = array_map(function (ExampleModel $example) {
             /** @var ExampleInterface $dataObject */
@@ -88,7 +88,7 @@ class ExampleRepository implements ExampleRepositoryInterface
         return $examples;
     }
 
-    private function applySearchCriteriaToCollection(
+    protected function applySearchCriteriaToCollection(
         SearchCriteriaInterface $searchCriteria,
         ExampleCollection $collection
     ) {
@@ -97,7 +97,7 @@ class ExampleRepository implements ExampleRepositoryInterface
         $this->applySearchCriteriaPagingToCollection($searchCriteria,$collection);
     }
 
-    private function applySearchCriteriaFiltersToCollection(
+    protected function applySearchCriteriaFiltersToCollection(
         SearchCriteriaInterface $searchCriteria,
         ExampleCollection $collection
     ) {
@@ -106,20 +106,20 @@ class ExampleRepository implements ExampleRepositoryInterface
         }
     }
 
-    private function applySearchCriteriaSortOrdersToCollection(
+    protected function applySearchCriteriaSortOrdersToCollection(
         SearchCriteriaInterface $searchCriteria,
         ExampleCollection $collection
     ) {
         $sortOrders = $searchCriteria->getSortOrders();
         if ($sortOrders) {
-            $isAscending = $sortOrder->getDirection() == SearchCriteriaInterface::SORT_ASC;
+            $isAscending = $sortOrders->getDirection() == SearchCriteriaInterface::SORT_ASC;
             foreach ($sortOrders as $sortOrder) {
                 $collection->addOrder($sortOrder->getField(),$isAscending ? 'ASC' : 'DESC');
             }
         }
     }
 
-    private function applySearchCriteriaPagingToCollection(
+    protected function applySearchCriteriaPagingToCollection(
         SearchCriteriaInterface $searchCriteria,
         ExampleCollection $collection
     ) {
