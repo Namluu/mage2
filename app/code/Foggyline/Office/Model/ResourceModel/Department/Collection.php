@@ -1,5 +1,4 @@
 <?php
-
 namespace Foggyline\Office\Model\ResourceModel\Department;
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
