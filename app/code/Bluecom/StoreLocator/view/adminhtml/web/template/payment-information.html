@@ -1,0 +1,29 @@
+<div class="label">
+    <h4 data-bind="i18n: 'Payment method'"></h4>
+</div>
+<ul data-bind="foreach: paymentMethod" class="field payment-method required">
+    <li class="control">
+       <input name="payment_method" type="radio"
+              data-bind="
+              value: value,
+              enable: $parent.isAllowChangePaymentMethod,
+              checked: $parent.paymentMethodSelected,
+              attr:{
+                id: 'payment_' + value
+              },
+              event: {
+                click: $parent.selectPaymentMethod
+              }
+        " />
+        <label data-bind="
+            attr:{
+                for: 'payment_' + value},">
+            <span data-bind="text: label"></span>
+            <br>
+            <span data-bind="i18n: 'Surcharge Fee'"></span>
+            :
+            <span data-bind="text: $parent.formatCurrency(params.price)"></span>
+        </label>
+
+    </li>
+</ul>

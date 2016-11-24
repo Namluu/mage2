@@ -1,0 +1,32 @@
+<h3 data-bind="i18n: 'Confirm your change'"></h3>
+
+<div class="table">
+    <ul>
+        <li data-bind="i18n: 'Course Name'"></li>
+        <li data-bind="text: profile.getName()"></li>
+    </ul>
+
+    <ul>
+        <li data-bind="i18n: 'Frequency'"></li>
+        <li data-bind="text:  profile.frequency_interval() + ' ' + profile.frequency_unit()"></li>
+    </ul>
+
+    <ul>
+        <li data-bind="i18n: 'Payment method'"></li>
+        <li data-bind="text: profile.paymentmethod()"></li>
+    </ul>
+</div>
+
+<div class="actions-toolbar">
+    <div class="primary button">
+        <button data-bind="event:{
+                 click: returnToEditPage
+                }"
+                id="go.back"
+                title="Go Back"
+                value="back"
+                class="action primary save">
+            <span data-bind="i18n: 'Go Back'"></span>
+        </button>
+    </div>
+</div>

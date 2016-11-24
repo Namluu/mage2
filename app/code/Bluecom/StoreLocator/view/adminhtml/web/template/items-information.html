@@ -1,0 +1,27 @@
+<div class="table table list" data-bind="foreach: { data: itemData, as: 'item' }">
+    <!-- Show address + delivery type -->
+    <div class="table block">
+        <h4 data-bind="text: item.info.name + '(' +  item.info.code + ')'"></h4>
+        <div class="left">
+            <ul>
+                <li>
+                    <span class="label" data-bind="i18n: 'Current shipping address'"></span>
+                    <select data-bind="attr:{
+                        name: 'address[' + item.address_id + '][' + item.info.code + ']',
+                        id: 'head-address-' + item.address_id + '-' + item.info.code
+                        },
+                        options: $parent.customerAddressData,
+                        optionsText: 'name',
+                        optionsValue: 'address_id',
+                        value: item.address_id,
+                        event:{ change: $parent.selectAddress}"  class="can-create-new-address">
+                    </select>
+                </li>
+                <li>
+                    <span class="label" data-bind="i18n: 'Delivery Type'"></span>
+                    <span data-bind="text: item.info.code"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

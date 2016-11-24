@@ -1,0 +1,39 @@
+<ul class="custom-table">
+    <li class="item">
+        <span data-bind="i18n: 'Course'"></span>
+        <span data-bind="text: courseName"></span>
+    </li>
+    <li class="item">
+        <span data-bind="i18n: 'Status'"></span>
+        <span data-bind="text: getStatus()"></span>
+    </li>
+    <li class="item">
+        <span data-bind="i18n: 'Frequency'"></span>
+        <span data-bind="text: getFullFrequency()"></span>
+    </li>
+</ul>
+
+<div class="label">
+    <h4 data-bind="text: courseName">
+    </h4>
+</div>
+<div class="field status required">
+    <span class="label" data-bind="i18n: 'Frequency'">
+    </span>
+    <div class="control">
+        <select 
+            data-bind="
+                options: frequencyData,
+                optionsText: 'text', 
+                optionsValue: 'id',
+                value: selectedFrequency,
+                event: {
+                    change: selectFrequency
+                }"
+            name="frequency_id"
+            id="frequency_id"
+            aria-required="true"
+            class="select global-scope required-entry">
+        </select>
+    </div>
+</div>

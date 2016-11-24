@@ -1,0 +1,67 @@
+<!-- ko foreach:getRegion('basic-information') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->
+
+<form data-bind="attr:{
+        action: '',
+        method: 'POST',
+        id: 'form-submit-profile',
+        class: 'form form-giftregistry-edit validation'
+    }"
+    data-mage-init='{"validation":{}}'>
+
+    <div class="actions-toolbar">
+        <div class="primary button">
+            <button data-bind="attr:{title: 'Save', class: 'action primary save'}">
+                <span data-bind="i18n: 'Update All Changes'"></span>
+            </button>
+        </div>
+        <div class="primary button" id="manually_create_order">
+            <button data-bind="
+            attr:{
+                title: 'Generate the next order', 
+                class: 'action primary save', 
+                id: 'generate_order', 
+                value: 'generate_order'
+            },event:{
+                click: generateNextOrder
+            }">
+                <span data-bind="i18n: 'Generate the next order'"></span>
+            </button>
+        </div>
+    </div>
+
+    <fieldset class="fieldset">
+        <div class="left"></div>
+        <div class="right">
+            <!-- ko foreach:getRegion('payment-information') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        </div>
+    </fieldset>
+
+    <fieldset class="fieldset">
+        <!-- ko foreach:getRegion('billing-information') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+    </fieldset>
+
+    <fieldset class="fieldset">
+        <!-- ko foreach:getRegion('items-information') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+    </fieldset>
+
+    <fieldset class="fieldset">
+        <!-- ko foreach:getRegion('total-information') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+    </fieldset>
+
+    <fieldset class="fieldset" data-bind="visible: profileHasChange()">
+        <!-- ko foreach:getRegion('confirmation') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+    </fieldset>
+
+</form>

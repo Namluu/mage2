@@ -1,0 +1,28 @@
+<?php
+/**
+ * @var $block \Bluecom\StoreLocator\Controller\Adminhtml\Location\View
+ */
+?>
+<div id="form-edit" data-bind="scope:'subscription-form-edit'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#form-edit": {
+                "Magento_Ui/js/core/app": <?php /* @escapeNotVerified */ echo $block->getJsLayout();?>
+            }
+        }
+    </script>
+    <script>
+        window.subscriptionConfig = <?php /* @escapeNotVerified */ echo $block->getSubscriptionConfig();?>;
+        window.locationConfig = <?php /* @escapeNotVerified */ echo $block->getLocationConfig();?>;
+    </script>
+    <script>
+        require([
+            'mage/url',
+            'Magento_Ui/js/block-loader'
+        ], function(url, blockLoader) {
+            blockLoader("<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>");
+            return url.setBaseUrl('<?php /* @escapeNotVerified */ echo $block->getBaseUrl();?>');
+        })
+    </script>
+</div>

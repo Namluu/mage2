@@ -8,6 +8,7 @@ use Magento\Framework\UrlInterface;
 
 class LocationActions extends Column
 {
+    const LOCATION_URL_PATH_VIEW = 'store/location/view';
     const LOCATION_URL_PATH_EDIT = 'store/location/edit';
     const LOCATION_URL_PATH_DELETE = 'store/location/delete';
 
@@ -34,6 +35,10 @@ class LocationActions extends Column
             foreach ($dataSource['data']['items'] as & $item) {
                 $name = $this->getData('name');
                 if (isset($item['location_id'])) {
+                    $item[$name]['view'] = [
+                        'href' => $this->urlBuilder->getUrl(self::LOCATION_URL_PATH_VIEW, ['location_id' => $item['location_id']]),
+                        'label' => __('View')
+                    ];
                     $item[$name]['edit'] = [
                         'href' => $this->urlBuilder->getUrl($this->editUrl, ['location_id' => $item['location_id']]),
                         'label' => __('Edit')

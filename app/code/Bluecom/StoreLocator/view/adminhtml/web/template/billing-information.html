@@ -1,0 +1,20 @@
+<div class="table-wrapper">
+    <div class="table table list admin__scope-old">
+        <div class="fieldset-wrapper customer-information">
+            <h2><strong data-bind="i18n: 'Billing address'"></strong></h2>
+            <table data-bind="if: getHasBillingInformation()" class="admin__table-secondary">
+                <tr>
+                    <th data-bind="i18n: 'Customer ID:'"></th>
+                    <td data-bind="text: billingAddressData.customerId"></td>
+                </tr>
+            </table>
+            <address data-bind="if: getHasBillingInformation()">
+                 <div data-bind="html: billingAddressData.inline_address">
+                 </div>
+            </address>
+            <p data-bind="if: !getHasBillingInformation()">
+                <span data-bind="i18n: 'There is no billing address'"></span>
+            </p>
+        </div>
+    </div>
+</div>
