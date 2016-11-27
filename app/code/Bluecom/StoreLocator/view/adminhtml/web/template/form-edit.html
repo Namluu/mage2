@@ -31,7 +31,7 @@
         </div>
     </div>
 
-    <fieldset class="fieldset">
+    <fieldset class="fieldset" data-bind="visible: !profileHasChange()">
         <div class="left"></div>
         <div class="right">
             <!-- ko foreach:getRegion('payment-information') -->
@@ -40,19 +40,19 @@
         </div>
     </fieldset>
 
-    <fieldset class="fieldset">
+    <fieldset class="fieldset" data-bind="visible: !profileHasChange()">
         <!-- ko foreach:getRegion('billing-information') -->
             <!-- ko template: getTemplate() --><!-- /ko -->
         <!-- /ko -->
     </fieldset>
 
-    <fieldset class="fieldset">
+    <fieldset class="fieldset" data-bind="visible: !profileHasChange()">
         <!-- ko foreach:getRegion('items-information') -->
             <!-- ko template: getTemplate() --><!-- /ko -->
         <!-- /ko -->
     </fieldset>
 
-    <fieldset class="fieldset">
+    <fieldset class="fieldset" data-bind="visible: !profileHasChange()">
         <!-- ko foreach:getRegion('total-information') -->
             <!-- ko template: getTemplate() --><!-- /ko -->
         <!-- /ko -->
@@ -63,5 +63,14 @@
             <!-- ko template: getTemplate() --><!-- /ko -->
         <!-- /ko -->
     </fieldset>
+
+    <div class="actions-toolbar" data-bind="visible: !profileHasChange()">
+        <div class="primary button">
+            <button data-bind="attr:{title: 'Add Product To Sub'},event: {click: addProductToCourse}"
+                type="button" name="add_product" id="add_product" class="action primary save">
+                <span data-bind="i18n: 'Add Product To Sub'"></span>
+            </button>
+        </div>
+    </div>
 
 </form>

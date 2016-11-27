@@ -26,3 +26,100 @@
         })
     </script>
 </div>
+
+<div id="add-products" style="display: none">
+    <fieldset class="fieldset">
+        <?php $productCourse = $block->getListProductOfCourse();
+        if(!empty($productCourse)):
+            ?>
+            <div class="add-more-prod-at-subscription">
+                <div class="content-wrapper">
+                    <div class="head">
+                        <div class="prod-img"><?php echo __('Product image'); ?></div>
+                        <div class="prod-name"><?php echo __('Product name'); ?></div>
+                        <div class="prod-price price"><?php echo __('Price'); ?></div>
+                        <div class="prod-qty qty"><?php echo __('Quantity'); ?></div>
+                        <div class="prod-unit unit"><?php echo __('Unit'); ?></div>
+                        <div class="prod-address address"><?php echo __('Address'); ?></div>
+                        <div class="prod-action action"><?php echo __('Action'); ?></div>
+                    </div>
+                    <?php foreach ($productCourse as $product) : ?>
+                        <form action="<?php echo $block->getUrlAddProduct(); ?>" method="post"
+                                  class="form form-giftregistry-edit validation"
+                                  data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>" data-mage-init='{"validation":{}}'>
+                        <div class="tr-product" data-id="<?php echo $product->getId() ?>">
+                            
+                                  
+                                <input type="hidden" name="profile_id" value="">
+                                <input type="hidden" name="product_id" value="<?php echo $product->getId() ?>">
+                                <div class="prod-img" data-th="<?php echo __('Product image'); ?>">
+                                    <img class="img-thumbnail" src="<?php echo $block->getProductImagesProfile($product) ?>" alt="Product Image">
+                                </div>
+                                <div class="prod-name" data-th="<?php echo __('Product name'); ?>">
+                                    <span><?php echo $product->getName(); ?></span>
+                                    <?php
+                                    $allowStockOrder = $product->getData('allow_spot_order');
+                                    if (!$allowStockOrder):
+                                        ?>
+                                        <div class="stock unavailable">
+                             <span>
+                                 <b>
+                                     <?php /* @escapeNotVerified */ echo __('Out of stock') ?>
+                                 </b>
+                             </span>
+                                        </div>
+                                    <?php endif; ?>
+
+                                </div>
+                                <div data-th="<?php echo __('Price'); ?>" class="prod-price price">
+                                    <?php echo $block->getProductPrice($product); ?>
+                                </div>
+                                <div data-th="<?php echo __('Quantity'); ?>" class="prod-qty qty">
+                                    <input type="text" id="<?php echo 'qty_'.$product->getId(); ?>" name="product_qty" value="1" title="Product Qty" data-validate="{'validate-item-quantity': { 'minAllowed': 1 }}" />
+                                </div>
+
+                                <!-- Unit product is case-->
+                                <div style="display: none;" data-th="<?php echo __('Quantity'); ?>" class="prod-qty qty">
+                                    <input type="text" id="<?php echo 'qty_case_'.$product->getId(); ?>" productid="<?php echo ((int)$product->getId());?>"  class="qty_case" name="product_qty_case" value="1" title="Product Qty"  data-validate="{'validate-item-quantity': { 'minAllowed': 1 }}"/>
+                                </div>
+                                <input type="hidden" name="unit_qty" id="<?php echo 'unit_qty_'.$product->getId(); ?>" value="<?php echo $block->getUnitQty($product);?>"/>
+
+                                <div data-th="<?php echo __('Unit'); ?>" class="prod-unit unit">
+                                    <?php $_unitdisplays = $block->getUnitDisplay($product);
+                                    if(is_array($_unitdisplays) && count($_unitdisplays) ){ ?>
+                                        <select id="<?php echo 'case_display_'.$product->getId(); ?>" class="unit-case" unitqty="<?php echo $block->getUnitQty($product);?>"  productid="<?php echo ((int)$product->getId());?>" name="<?php echo 'unit_case' ?>" >
+                                            <?php foreach ($_unitdisplays as $key_unit => $_unitdisplay){ ?>
+                                                <option value="<?php echo $key_unit;?>"><?php echo $_unitdisplay;?></option>
+                                            <?php } ?>
+                                        </select>
+                                    <?php }else {?>
+                                        <input type="hidden" id="<?php echo 'case_display_'.$product->getId(); ?>" class="unit-case" unitqty="<?php echo $block->getUnitQty($product);?>"  productid="<?php echo ((int)$product->getId());?>" name="<?php echo 'unit_case' ?>" value="N/A">
+                                        <?php echo __('N/A');?>
+                                    <?php }?>
+                                </div>
+
+                                <div class="prod-address" data-th="<?php echo __('Address'); ?>">
+                                    <select name="product_address" id="product_address" title="Product Address">
+                                        <?php foreach ($block->getAllAddress() as $address_value) : ?>
+                                            <option value="<?php echo $address_value["address_id"] ?>"><?php echo $address_value['name'] ?></option>
+                                        <?php endforeach;  ?>
+                                    </select>
+                                </div>
+                                <div class="prod-action" data-th="<?php echo __('Action'); ?>">
+                                    <?php if ($allowStockOrder): ?>
+                                        <input type="submit" name="add_product" value="<?php echo __('Add'); ?>">
+                                    <?php  endif; ?>
+                                </div>
+                            
+                        </div>
+                        </form>
+                    <?php endforeach;?>
+                </div>
+            </div>
+        <?php else:  ?>
+            <div>
+                <?php echo __("There are no product belong to this course!")  ?>
+            </div>
+        <?php endif;  ?>
+    </fieldset>
+</div>

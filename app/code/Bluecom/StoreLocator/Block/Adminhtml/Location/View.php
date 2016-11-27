@@ -179,12 +179,25 @@ class View extends \Magento\Backend\Block\Template
         return $arrReturn;
     }
 
-    public function getAddressNameByAddressId($addressId){
+    public function getAddressNameByAddressId($addressId)
+    {
         $customerAddress = $this->customerAddress->create()->load($addressId);
         $rikiNickName = $customerAddress->getCustomAttribute('riki_nickname');
         if($rikiNickName){
             return $rikiNickName->getValue();
         }
         return null;
+    }
+
+    public function getListProductOfCourse()
+    {
+        $this->objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $searchCriteriaBuilder = $this->objectManager->create('Magento\Framework\Api\SearchCriteriaBuilder');
+        $productRepository = $this->objectManager->create('Magento\Catalog\Api\ProductRepositoryInterface');
+        $filter = $searchCriteriaBuilder->addFilter('category_id', 3)->create();
+        $productRepository = $productRepository->getList($filter);
+        $products = $productRepository->getItems();
+
+        return $products;
     }
 }

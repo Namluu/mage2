@@ -10,6 +10,7 @@ define([
         'uiComponent',
         'Magento_Ui/js/modal/alert',
         'Bluecom_StoreLocator/js/model/profile',
+        'Magento_Ui/js/modal/modal',
         "jquery/ui",
         "mage/translate",
         "mage/mage",
@@ -20,6 +21,7 @@ define([
         Component,
         alert,
         profile,
+        modal,
         mage,
         $t
     ) {
@@ -43,7 +45,25 @@ define([
                 return this;
             },
             generateNextOrder: function(formEdit , event){
-               profile.profileHasChanged(true);
+                profile.profileHasChanged(true);
+            },
+            addProductToCourse: function(formEdit , event){
+                var hiddenElement = $('#add-products');
+                var options = {
+                    type: 'popup',
+                    responsive: true,
+                    innerScroll: true,
+                    modalClass: 'add-product-popup',
+                    title: $t('Add product'),
+                    buttons: [{
+                        text: $t('Continue'),
+                        click: function () {
+                            this.closeModal();
+                        }
+                    }]
+                };
+                var popup = modal(options,hiddenElement );
+                hiddenElement.modal('openModal');
             }
         });
     }

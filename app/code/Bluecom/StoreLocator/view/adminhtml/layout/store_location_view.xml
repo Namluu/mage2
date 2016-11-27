@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <update handle="editor"/>
+    <head>
+        <css src="Bluecom_StoreLocator/css/subscription-profile-admin.css" />
+    </head>
     <body>
         <referenceContainer name="content">
             <block class="Bluecom\StoreLocator\Block\Adminhtml\Location\View" cacheable="false" template="Bluecom_StoreLocator::location-view.phtml">
