@@ -44,9 +44,9 @@
                         <div class="prod-action action"><?php echo __('Action'); ?></div>
                     </div>
                     <?php foreach ($productCourse as $product) : ?>
-                        <form action="<?php echo $block->getUrlAddProduct(); ?>" method="post"
+                        <!--<form action="<?php echo $block->getUrlAddProduct(); ?>" method="post"
                                   class="form form-giftregistry-edit validation"
-                                  data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>" data-mage-init='{"validation":{}}'>
+                                  data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>" data-mage-init='{"validation":{}}'>-->
                         <div class="tr-product" data-id="<?php echo $product->getId() ?>">
                             
                                   
@@ -112,7 +112,7 @@
                                 </div>
                             
                         </div>
-                        </form>
+                        
                     <?php endforeach;?>
                 </div>
             </div>
