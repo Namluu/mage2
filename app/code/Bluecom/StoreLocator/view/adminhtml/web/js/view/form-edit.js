@@ -12,9 +12,7 @@ define([
         'Bluecom_StoreLocator/js/model/profile',
         'Magento_Ui/js/modal/modal',
         "jquery/ui",
-        "mage/translate",
-        "mage/mage",
-        "mage/validation"
+        "mage/translate"
     ], function (
         $,
         ko,
@@ -64,6 +62,15 @@ define([
                 };
                 var popup = modal(options,hiddenElement );
                 hiddenElement.modal('openModal');
+            },
+            updateAllChanges: function(){
+                if (!this.validateForm('#form-submit-profile')) {
+                   return;
+                }
+                console.log('validate success');
+            },
+            validateForm: function (form) {
+                return $(form).validation() && $(form).validation('isValid');
             }
         });
     }

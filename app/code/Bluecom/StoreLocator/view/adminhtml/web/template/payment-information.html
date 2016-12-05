@@ -27,3 +27,19 @@
 
     </li>
 </ul>
+
+<div class="field test required">
+    <span class="label" data-bind="i18n: 'Test'">
+    </span>
+    <div class="control">
+        <select 
+            data-bind="
+                options: ['abc', 'def'],
+                optionsCaption: 'Please select'"
+            name="test"
+            id="test"
+            aria-required="true"
+            class="select global-scope required-entry">
+        </select>
+    </div>
+</div>

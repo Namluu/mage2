@@ -6,13 +6,18 @@
         action: '',
         method: 'POST',
         id: 'form-submit-profile',
-        class: 'form form-giftregistry-edit validation'
-    }"
-    data-mage-init='{"validation":{}}'>
+        class: 'form form-giftregistry-edit'
+    }">
 
     <div class="actions-toolbar">
         <div class="primary button">
-            <button data-bind="attr:{title: 'Save', class: 'action primary save'}">
+            <button data-bind="
+                attr:{
+                    title: 'Save', 
+                    class: 'action primary save'
+                },event:{
+                    click: updateAllChanges
+                }">
                 <span data-bind="i18n: 'Update All Changes'"></span>
             </button>
         </div>
